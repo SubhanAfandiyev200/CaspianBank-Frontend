@@ -265,3 +265,45 @@ h2 {
 .mega-swatch-b { background: linear-gradient(160deg, #e7f3ea, #9dccb0); }
 .mega-swatch-c { background: linear-gradient(160deg, #eef6d8, #c5d86d); }
 .mega-swatch-d { background: linear-gradient(160deg, #0f5c3f, #1b8a5a); }
+
+
+
+.ticker {
+  overflow: hidden;
+  background: var(--lime);
+  color: var(--green-ink);
+  border-bottom: 1px solid rgba(16, 40, 30, 0.08);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.ticker ul,
+.logo-track ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ticker li {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 12px 0 12px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticker li span { font-weight: 500; }
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
