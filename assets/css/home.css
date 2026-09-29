@@ -657,3 +657,100 @@ h2 {
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* Services */
+
+.services { padding: 20px 0 80px; }
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+  padding: 32px 28px 28px;
+  background: var(--white);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.service-no {
+  position: absolute;
+  right: 12px;
+  top: -6px;
+  font-size: 96px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: rgba(15, 92, 63, 0.08);
+  transition: color 0.3s ease;
+  pointer-events: none;
+}
+
+.service-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--green-deep);
+  transition: color 0.3s ease;
+}
+
+.service-card h3 {
+  margin-top: 18px;
+  font-size: 20px;
+  color: var(--green-deep);
+  transition: color 0.3s ease;
+}
+
+.service-card p {
+  margin-top: 8px;
+  max-width: 32ch;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.service-icon,
+.service-card h3,
+.service-card p,
+.service-no { position: relative; z-index: 2; }
+
+.service-card::before,
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #0f5c3f;
+  pointer-events: none;
+  transition: clip-path 0.55s cubic-bezier(0.45, 0.02, 0.2, 1);
+}
+
+.service-card::before {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.service-card::after {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+.service-card:hover { background: #0f5c3f; }
+.service-card:hover::before {
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 0 100%);
+}
+.service-card:hover::after {
+  clip-path: polygon(0 28%, 100% 0, 100% 100%, 0 100%);
+}
+.service-card:hover .service-icon,
+.service-card:hover h3 { color: #e7f3c8; }
+.service-card:hover p { color: rgba(255, 255, 255, 0.78); }
+.service-card:hover .service-no { color: rgba(255, 255, 255, 0.16); }
