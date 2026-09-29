@@ -442,3 +442,218 @@ h2 {
 .mark-f { background: #0f5c3f; }
 .mark-g { background: #c5d86d; }
 .mark-h { background: radial-gradient(circle at 30% 30%, #93c5fd, #1d4ed8); }
+
+/* Hero */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 88px max(24px, calc((100% - 1180px) / 2)) 72px;
+  border-radius: 0;
+  overflow: visible;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(165deg, #15784c 0%, #0f5c3f 48%, #0c4630 100%);
+  background-size: 84px 84px, 84px 84px, auto;
+  color: white;
+}
+
+.hero .eyebrow { color: var(--lime); }
+.hero .lede { color: rgba(255, 255, 255, 0.78); }
+.hero h1 { max-width: 11ch; }
+
+.hero .btn { margin-top: 28px; }
+
+.spark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background:
+    linear-gradient(var(--lime), var(--lime)) center / 2px 100% no-repeat,
+    linear-gradient(var(--lime), var(--lime)) center / 100% 2px no-repeat;
+  animation: spin 8s linear infinite;
+}
+.spark-a { left: auto; right: 24%; top: 16%; }
+.spark-b { right: 7%; top: 10%; width: 10px; height: 10px; }
+
+.hero-visual { position: relative; min-height: 460px; }
+
+.spin-star {
+  position: absolute;
+  right: 8%;
+  top: 8px;
+  font-size: 28px;
+  color: var(--green-bright);
+  animation: spin 8s linear infinite;
+}
+
+.fan {
+  position: relative;
+  height: 440px;
+}
+
+.fan-card {
+  position: absolute;
+  left: 30%;
+  top: 36px;
+  width: 268px;
+  height: 168px;
+  margin-left: -70px;
+  border-radius: 10px;
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 18px 40px rgba(8, 24, 16, 0.28);
+  overflow: hidden;
+}
+
+.fan-card:nth-child(1) { z-index: 3; }
+.fan-card:nth-child(2) { z-index: 2; }
+.fan-card:nth-child(3) { z-index: 1; }
+
+.fan-regular {
+  --metal: linear-gradient(165deg, #ffffff 0%, #e7f6b4 28%, #8ed45a 62%, #f4f8c4 100%);
+  --metal-edge: rgba(255, 255, 255, 0.8);
+  --metal-shadow: rgba(4, 24, 14, 0.55);
+  --mark-plate: #e7f2a4;
+  --mark-ink: #0f5c3f;
+  background:
+    radial-gradient(140px 90px at 82% 46%, rgba(180, 220, 90, 0.28), transparent 70%),
+    linear-gradient(155deg, #1f8a50 0%, #0f5c38 50%, #083222 100%);
+  color: #f3fae8;
+}
+.fan-silver {
+  --metal: linear-gradient(165deg, #ffffff 0%, #d5dde2 32%, #8b969c 58%, #f7f8f8 100%);
+  --metal-edge: rgba(255, 255, 255, 0.92);
+  --metal-shadow: rgba(0, 0, 0, 0.55);
+  --mark-plate: #e8ecee;
+  --mark-ink: #1c2428;
+  background:
+    radial-gradient(150px 100px at 80% 42%, rgba(255, 255, 255, 0.18), transparent 68%),
+    linear-gradient(155deg, #5a6368 0%, #2c3338 48%, #14181b 100%);
+  color: #f3f5f6;
+}
+.fan-gold {
+  --metal: linear-gradient(165deg, #fff8dc 0%, #f0c14a 24%, #c48a1a 50%, #fff1c0 74%, #a86b12 100%);
+  --metal-edge: rgba(255, 244, 200, 0.95);
+  --metal-shadow: rgba(0, 0, 0, 0.6);
+  --mark-plate: #f0c14a;
+  --mark-ink: #1a120c;
+  background:
+    radial-gradient(170px 110px at 78% 46%, rgba(232, 176, 64, 0.42), transparent 70%),
+    linear-gradient(155deg, #4a3418 0%, #24180e 46%, #0e0b08 100%);
+  color: #f8e7c0;
+}
+
+.fan-art,
+.fan-shine { position: absolute; pointer-events: none; }
+.fan-shine {
+  inset: 0;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0) 62%, rgba(255, 255, 255, 0.14) 100%);
+}
+.fan-art {
+  right: 8%;
+  top: 54%;
+  transform: translateY(-50%);
+  font-family: Inter, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 108px;
+  line-height: 0.72;
+  letter-spacing: -0.08em;
+}
+.fan-art::before {
+  content: "C";
+  display: block;
+  background: var(--metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--metal-edge);
+  filter: drop-shadow(4px 6px 0 var(--metal-shadow));
+}
+.fan-top, .fan-chip, .fan-mask, .fan-issuer { position: relative; z-index: 1; }
+.fan-top { display: flex; align-items: center; gap: 8px; }
+.fan-brand { display: inline-flex; align-items: center; gap: 6px; }
+.fan-mark {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--mark-plate);
+  display: inline-grid;
+  place-items: center;
+}
+.fan-mark::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: 1.6px solid transparent;
+  border-right-color: var(--mark-ink);
+  border-top-color: var(--mark-ink);
+  border-bottom-color: var(--mark-ink);
+  border-radius: 0 8px 8px 0;
+}
+.fan-bank { font-size: 13px; font-weight: 600; letter-spacing: -0.02em; }
+.fan-tier {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.fan-wave { flex: none; }
+.fan-chip {
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  background:
+    linear-gradient(rgba(92, 62, 12, 0.55), rgba(92, 62, 12, 0.55)) 0 34% / 100% 1px no-repeat,
+    linear-gradient(rgba(92, 62, 12, 0.55), rgba(92, 62, 12, 0.55)) 0 67% / 100% 1px no-repeat,
+    linear-gradient(rgba(92, 62, 12, 0.55), rgba(92, 62, 12, 0.55)) 34% 0 / 1px 100% no-repeat,
+    linear-gradient(rgba(92, 62, 12, 0.55), rgba(92, 62, 12, 0.55)) 67% 0 / 1px 100% no-repeat,
+    linear-gradient(145deg, #f8e7a2 0%, #d7b15a 46%, #a67c2d 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+.fan-regular {
+  --figure: #ffffff;
+  --label: #e4f4a4;
+  --ink-shadow: 0 1px 1px rgba(0, 0, 0, 0.72);
+}
+.fan-silver {
+  --figure: #ffffff;
+  --label: #e7eef2;
+  --ink-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+.fan-gold {
+  --figure: #fffdf8;
+  --label: #ffe08a;
+  --ink-shadow: 0 1px 1px rgba(0, 0, 0, 0.78);
+}
+.fan-bank,
+.fan-tier,
+.fan-mask,
+.fan-issuer {
+  color: var(--figure);
+  text-shadow: var(--ink-shadow);
+}
+.fan-tier { color: var(--label); }
+.fan-mask {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.fan-issuer {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
