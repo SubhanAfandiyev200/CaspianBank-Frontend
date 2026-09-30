@@ -2,6 +2,16 @@
 
 (function () {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  try {
+  const saved = JSON.parse(localStorage.getItem("caspian.ui") || "null");
+  const home = saved && saved.home;
+  if (home) {
+    document.querySelectorAll("[data-ui]").forEach((node) => {
+      const value = home[node.getAttribute("data-ui")];
+      if (value) node.textContent = value;
+    });
+  }
+} catch (e) { /* keep the page copy */ }
   const toggle = document.querySelector(".nav-toggle");
   const header = document.querySelector(".site-header");
   toggle?.addEventListener("click", () => {

@@ -1384,3 +1384,59 @@ h2 {
   text-transform: lowercase;
 }
 .footer-social a:hover { background: rgba(255, 255, 255, 0.08); }
+@media (max-width: 980px) {
+  .header-bar { grid-template-columns: 1fr auto; }
+  .nav-toggle { display: inline-flex; justify-self: end; }
+  .header-bar .btn { display: none; }
+  .site-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 72px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 20px 16px;
+    background: white;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header.is-open .site-nav { display: flex; }
+  .site-nav a,
+  .nav-home > a { display: block; padding: 12px 0; color: var(--text); }
+  .mega-inner,
+  .service-grid,
+  .stat-row,
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero { grid-template-columns: 1fr; padding: 48px 28px; }
+  .hero-visual { min-height: 320px; }
+  .split, .benefits-head, .pillars, .footer-hero, .footer-grid { grid-template-columns: 1fr; }
+  .footer-hero .cta-actions { align-self: start; padding-top: 0; }
+  .footer-links { padding-left: 0; border-left: 0; padding-top: 8px; }
+}
+
+@media (max-width: 680px) {
+  .mega-inner,
+  .hero,
+  .service-grid,
+  .stat-row,
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero-form { flex-direction: column; border-radius: 10px; }
+  .hero-form .btn { width: 100%; }
+  .footer-links { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .fan { height: 300px; }
+  .fan-card { width: 200px; height: 128px; margin-left: -100px; }
+  .fan-art { font-size: 78px; }
+  .drag-hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .logo-track,
+  .spin-star,
+  .ring-orbit { animation: none; }
+  .btn-go::before,
+  .btn-go-arrow { transition: none; }
+  .mega { transition: none; }
+}
