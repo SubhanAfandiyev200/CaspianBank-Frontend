@@ -115,4 +115,79 @@
       }
     );
   }
+  const viewport = document.getElementById("benefit-viewport");
+const track = document.getElementById("benefit-track");
+const hint = document.getElementById("drag-hint");
+if (viewport && track && window.Draggable) {
+  const slides = track.querySelectorAll(".benefit-card");
+  const step = () => {
+    const card = slides[0];
+    if (!card) return 1;
+    const gap = 20;
+    return card.getBoundingClientRect().width + gap;
+  };
+  const maxScroll = () => -Math.max(0, track.scrollWidth - viewport.clientWidth);
+
+  let velocity = 0;
+  let lastX = 0;
+  let lastT = 0;
+
+  const draggable = Draggable.create(track, {
+    type: "x",
+    inertia: hasInertia,
+    bounds: viewport,
+    cursor: "grab",
+    activeCursor: "grabbing",
+    snap: hasInertia
+      ? (value) => gsap.utils.clamp(maxScroll(), 0, Math.round(value / step()) * step())
+      : false,
+    onPress() {
+      viewport.classList.add("is-dragging");
+      lastX = this.x;
+      lastT = performance.now();
+      velocity = 0;
+    },
+    onDrag() {
+      const now = performance.now();
+      const dt = Math.max(16, now - lastT);
+      velocity = (this.x - lastX) / dt;
+      lastX = this.x;
+      lastT = now;
+    },
+    onRelease() {
+      viewport.classList.remove("is-dragging");
+      if (hasInertia) return;
+      const size = step();
+      const projected = this.x + velocity * 180;
+      const snapped = gsap.utils.clamp(maxScroll(), 0, Math.round(projected / size) * size);
+      gsap.to(track, { x: snapped, duration: 0.55, ease: "power2.out" });
+    }
+  })[0];
+
+  function go(direction) {
+    const current = Number(gsap.getProperty(track, "x")) || 0;
+    const next = gsap.utils.clamp(maxScroll(), 0, current + direction * step());
+    gsap.to(track, { x: next, duration: 0.55, ease: "power2.out" });
+  }
+  document.getElementById("benefit-prev")?.addEventListener("click", () => go(1));
+  document.getElementById("benefit-next")?.addEventListener("click", () => go(-1));
+  window.addEventListener("resize", () => draggable?.applyBounds(viewport));
+
+  if (hint && window.matchMedia("(hover: hover)").matches) {
+    document.body.appendChild(hint);
+    const place = (event) => {
+      hint.style.transform = "translate(" + event.clientX + "px, " + event.clientY + "px) translate(-50%, -50%)";
+    };
+    viewport.addEventListener("pointerenter", (event) => {
+      hint.classList.add("is-on");
+      viewport.classList.add("is-hint");
+      place(event);
+    });
+    viewport.addEventListener("pointerleave", () => {
+      hint.classList.remove("is-on");
+      viewport.classList.remove("is-hint");
+    });
+    viewport.addEventListener("pointermove", place);
+  }
+}
 })();
