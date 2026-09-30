@@ -1,0 +1,193 @@
+:root {
+  --color-primary: #0f5c3f;
+  --color-primary-ink: #0f5c3f;
+  --color-lime: #c5d86d;
+  --color-bg: #f7f8f6;
+  --color-surface: #ffffff;
+  --color-text: #141816;
+  --color-text-secondary: #5e6862;
+  --color-text-tertiary: #8a938d;
+  --color-border: #e3e7e4;
+  --color-border-strong: #cdd4cf;
+  --color-danger: #8e3b3b;
+  --radius-md: 8px;
+  --radius-pill: 8px;
+  --font: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-xl: 28px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+h1, p { margin: 0; }
+
+h1 {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+a { color: var(--color-primary-ink); }
+
+.lede {
+  margin-top: 8px;
+  color: var(--color-text-secondary);
+}
+
+.field-hint {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.mt-5 { margin-top: 24px; }
+.auth-wide { width: min(520px, 100%); }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.brand-mark { width: 32px; height: 32px; flex: none; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-lime);
+  color: #10281e;
+}
+
+.btn-primary:hover { background: #b7cc5c; }
+
+.btn-block { width: 100%; }
+
+.form-stack { display: grid; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label { font-size: var(--fs-sm); font-weight: 600; }
+
+.input {
+  width: 100%;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 0 12px;
+  height: 44px;
+  font: inherit;
+  color: inherit;
+}
+
+.input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
+.input[readonly] {
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+}
+
+.phone-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.phone-prefix { flex: none; font-weight: 600; }
+
+.phone-input {
+  border: 0;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.phone-wrap:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
+body.body-public {
+  min-height: 100vh;
+  background-color: #0c3f2c;
+  background-image:
+    radial-gradient(880px 520px at 50% -12%, #f3fad4 0%, rgba(243, 250, 212, 0) 62%),
+    radial-gradient(620px 420px at 86% 18%, rgba(197, 216, 109, 0.9) 0%, transparent 58%),
+    radial-gradient(480px 360px at 10% 86%, rgba(27, 138, 90, 0.45) 0%, transparent 62%),
+    linear-gradient(180deg, #e4f3bc 0%, #b7dc86 24%, #3d9a62 52%, #0f5c3f 78%, #0c3f2c 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.auth-card {
+  width: min(440px, 100%);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 28px 70px rgba(10, 40, 24, 0.28);
+  padding: 40px 36px 28px;
+}
+
+.auth-card .brand { color: var(--color-text); margin-bottom: 28px; }
+.auth-card .brand-mark rect { fill: var(--color-primary); }
+.auth-card .brand-mark path { stroke: var(--color-lime); }
+
+.auth-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-tertiary);
+  font-size: var(--fs-sm);
+}
+
+.auth-foot a { font-weight: 600; text-decoration: none; }
