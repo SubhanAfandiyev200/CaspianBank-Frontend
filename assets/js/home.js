@@ -9,7 +9,13 @@
     header.classList.toggle("is-menu", open);
     toggle.setAttribute("aria-expanded", String(open));
   });
-
+document.getElementById("footer-form")?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const input = document.getElementById("footer-email");
+  // TODO: POST { email: input.value } to the mailing-list endpoint.
+  input.value = "";
+  input.placeholder = "Noted. We will write when there is something to say.";
+});
   const homeNav = document.querySelector(".nav-home");
   const mega = document.getElementById("mega");
   if (homeNav && mega && header) {
@@ -115,6 +121,68 @@
       }
     );
   }
+  const frame = document.getElementById("video-frame");
+function screenScale() {
+  const baseW = frame.offsetWidth;
+  const baseH = frame.offsetHeight;
+  if (!baseW || !baseH) return 1;
+  return Math.min(window.innerWidth / baseW, window.innerHeight / baseH);
+}
+if (frame && !reduce) {
+  gsap.fromTo(frame,
+    {
+      scale: () => screenScale() * 0.58,
+      borderRadius: 16
+    },
+    {
+      scale: () => screenScale(),
+      borderRadius: 12,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".video-section",
+        start: "top 88%",
+        end: "bottom 42%",
+        scrub: true,
+        invalidateOnRefresh: true
+      }
+    }
+  );
+  window.addEventListener("resize", () => ScrollTrigger.refresh());
+} else if (frame) {
+  gsap.set(frame, { scale: screenScale(), borderRadius: 12 });
+}
+  document.querySelectorAll(".ring").forEach((ring) => {
+  const value = ring.querySelector(".ring-value");
+  const figure = ring.querySelector(".ring-num");
+  const percent = Number(ring.dataset.percent) || 0;
+  const count = Number(ring.dataset.count) || 0;
+  const decimals = Number(ring.dataset.decimals) || 0;
+  const suffix = ring.dataset.suffix || "";
+  const length = 2 * Math.PI * 64;
+  value.style.strokeDasharray = String(length);
+  const end = length * (1 - Math.min(percent, 100) / 100);
+  const counter = { n: 0 };
+  const paint = () => {
+    figure.textContent = counter.n.toFixed(decimals) + suffix;
+  };
+  if (reduce) {
+    value.style.strokeDashoffset = String(end);
+    counter.n = count;
+    paint();
+    return;
+  }
+  value.style.strokeDashoffset = String(length);
+  const tl = gsap.timeline({
+    scrollTrigger: { trigger: ring, start: "top 82%", once: true }
+  });
+  tl.to(value, { strokeDashoffset: end, duration: 1.4, ease: "power2.out" }, 0);
+  tl.to(counter, {
+    n: count,
+    duration: 1.4,
+    ease: "power2.out",
+    onUpdate: paint
+  }, 0);
+});
   const viewport = document.getElementById("benefit-viewport");
 const track = document.getElementById("benefit-track");
 const hint = document.getElementById("drag-hint");
