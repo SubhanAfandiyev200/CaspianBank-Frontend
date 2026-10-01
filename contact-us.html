@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0F5C3F" />
+  <title>Contact · Caspian Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="body-app">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand" href="app.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1F8A4C"/>
+          <path d="M22 11.2a7.2 7.2 0 1 0 0 9.6" fill="none" stroke="#E4D2A8" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span>Caspian Bank</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="topnav-panel">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="app.html">Cards</a>
+          <a class="nav-link" href="transfer.html">Transfers</a>
+          <a class="nav-link" href="transaction-history.html">History</a>
+          <a class="nav-link" href="loan-application.html">Loans</a>
+          <a class="nav-link" href="bill-payment.html">Bill Payments</a>
+          <a class="nav-link is-active" href="contact-us.html">Contact</a>
+        </nav>
+        <div class="nav-tools">
+          <a class="btn btn-primary btn-sm" href="login.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="content" class="page">
+    <header class="page-head">
+      <p class="eyebrow">Support</p>
+      <h1>Contact us</h1>
+      <p class="lede">Head office in Baku, or a message to the team that looks after your account.</p>
+    </header>
+    <div class="layout-2">
+      <section class="surface stack">
+        <h2>Head office</h2>
+        <div class="address-list">
+          <strong>Caspian Bank</strong>
+          <span>28 Nizami Street</span>
+          <span>Baku AZ1000, Azerbaijan</span>
+          <span>Tel +994 12 310 00 00</span>
+          <span>Mon–Fri, 09:00–18:00</span>
+        </div>
+        <div class="map-wrap">
+          <iframe title="Map showing Caspian Bank head office on Nizami Street, Baku" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=40.3730,49.8370&amp;z=16&amp;output=embed"></iframe>
+        </div>
+      </section>
+      <section class="surface">
+        <h2>Send a message</h2>
+        <p class="lede" id="contact-as">Sign in to write to support.</p>
+        <form id="contact-form" class="form-stack mt-5" novalidate>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input class="input" id="subject" maxlength="120" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea class="textarea" id="message" maxlength="1000"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" id="contact-submit">Send message</button>
+        </form>
+      </section>
+    </div>
+    <section class="surface stack mt-5">
+      <h2>Your messages</h2>
+      <div id="ticket-list"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>Caspian Bank · 28 Nizami Street, Baku</span>
+      <span>Personal banking</span>
+    </div>
+  </footer>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>
