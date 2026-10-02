@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0F5C3F" />
+  <title>Transfer money · Caspian Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="body-app">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand" href="app.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1F8A4C"/>
+          <path d="M22 11.2a7.2 7.2 0 1 0 0 9.6" fill="none" stroke="#E4D2A8" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span>Caspian Bank</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="topnav-panel">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="app.html">Cards</a>
+          <a class="nav-link is-active" href="transfer.html">Transfers</a>
+          <a class="nav-link" href="transaction-history.html">History</a>
+          <a class="nav-link" href="loan-application.html">Loans</a>
+          <a class="nav-link" href="bill-payment.html">Bill Payments</a>
+          <a class="nav-link" href="contact-us.html">Contact</a>
+        </nav>
+        <div class="nav-tools">
+          <a class="btn btn-primary btn-sm" href="login.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="content" class="page pay-page">
+    <header class="page-head">
+      <p class="eyebrow">Payments</p>
+      <h1>Transfer money</h1>
+      <p class="lede">What you type appears on the card as you go.</p>
+    </header>
+    <div class="pay-stage">
+      <aside class="pay-preview" aria-hidden="true">
+        <p class="pay-kicker"><span class="pay-mark"></span> Caspian transfer</p>
+        <div class="pay-scene">
+          <div class="plastic plastic-gold" id="pay-card">
+            <span class="plastic-art" aria-hidden="true"></span>
+            <span class="plastic-shine" aria-hidden="true"></span>
+            <div class="plastic-top">
+              <span class="plastic-brand"><span class="plastic-mark" aria-hidden="true"></span><span class="plastic-bank">Caspian</span></span>
+              <span class="plastic-tier" id="live-tier">Gold</span>
+            </div>
+            <div class="plastic-mid"><span class="plastic-chip" aria-hidden="true"></span></div>
+            <p class="plastic-number" id="live-number"></p>
+            <div class="plastic-bottom">
+              <div>
+                <span class="plastic-k">Cardholder</span>
+                <span class="plastic-v" id="live-holder">Recipient</span>
+              </div>
+              <div>
+                <span class="plastic-k">Amount</span>
+                <span class="plastic-v num" id="live-amount">0.00 AZN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <dl class="pay-order">
+          <div><dt>From</dt><dd id="live-from">—</dd></div>
+          <div><dt>Amount</dt><dd id="live-order-amount">0.00 AZN</dd></div>
+          <div><dt>Commission</dt><dd id="live-fee">0.00 AZN</dd></div>
+          <div class="pay-total"><dt>Total debit</dt><dd id="live-total">0.00 AZN</dd></div>
+        </dl>
+      </aside>
+      <div class="pay-details">
+        <div class="pay-steps" id="pay-steps">
+          <span class="is-on" data-step="from">Your card</span>
+          <span data-step="to">Recipient</span>
+          <span data-step="amount">Amount</span>
+        </div>
+        <form id="transfer-form" class="pay-form" novalidate>
+          <h2>Transfer details</h2>
+          <p class="lede">Enter the card and the amount. The preview updates with each key.</p>
+          <div class="field">
+            <label for="from-card">From</label>
+            <select class="select" id="from-card"></select>
+          </div>
+          <div class="field">
+            <span id="to-label">To</span>
+            <div class="segment" role="group" aria-labelledby="to-label">
+              <button type="button" id="to-own" class="is-active">My own account</button>
+              <button type="button" id="to-other">Another user</button>
+            </div>
+          </div>
+          <div class="field" id="own-field">
+            <label for="to-card">Destination card</label>
+            <select class="select" id="to-card"></select>
+          </div>
+          <div class="field" id="other-field" hidden>
+            <label for="to-number">Recipient card number</label>
+            <input class="input" id="to-number" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" />
+          </div>
+          <div class="pay-split">
+            <div class="field">
+              <label for="amount">Amount</label>
+              <input class="input" id="amount" inputmode="decimal" placeholder="0.00" />
+            </div>
+            <div class="field">
+              <label for="note">Note</label>
+              <input class="input" id="note" maxlength="140" placeholder="What's this for?" />
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Review transfer</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>Caspian Bank · 28 Nizami Street, Baku</span>
+      <span>Personal banking</span>
+    </div>
+  </footer>
+  <script src="assets/js/transfer.js"></script>
+</body>
+</html>
