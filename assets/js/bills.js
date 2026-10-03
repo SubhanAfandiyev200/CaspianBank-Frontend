@@ -1,0 +1,109 @@
+"use strict"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0F5C3F" />
+  <title>Bill payments · Caspian Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="body-app">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand" href="app.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1F8A4C"/>
+          <path d="M22 11.2a7.2 7.2 0 1 0 0 9.6" fill="none" stroke="#E4D2A8" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span>Caspian Bank</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="topnav-panel">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="app.html">Cards</a>
+          <a class="nav-link" href="transfer.html">Transfers</a>
+          <a class="nav-link" href="transaction-history.html">History</a>
+          <a class="nav-link" href="loan-application.html">Loans</a>
+          <a class="nav-link is-active" href="bill-payment.html">Bill Payments</a>
+          <a class="nav-link" href="contact-us.html">Contact</a>
+        </nav>
+        <div class="nav-tools">
+          <a class="btn btn-primary btn-sm" href="login.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="content" class="page page-activity">
+    <header class="page-head">
+      <p class="eyebrow">Kontur</p>
+      <h1>Bill payments</h1>
+      <p class="lede">Pay a utility once, or keep it as a monthly instruction.</p>
+    </header>
+    <div class="pulse-row" id="bill-stats"></div>
+    <div class="layout-2">
+      <form id="bill-form" class="surface form-stack form-card" novalidate>
+        <h2>Pay a bill</h2>
+        <div class="field">
+          <label id="provider-label">Provider</label>
+          <div class="provider-grid" id="provider-grid">
+            <button type="button" data-provider="Azərişıq" class="is-active"><span class="provider-mark">İş</span>Azərişıq</button>
+            <button type="button" data-provider="Azərsu"><span class="provider-mark tone-2">Su</span>Azərsu</button>
+            <button type="button" data-provider="Azəriqaz"><span class="provider-mark tone-3">Q</span>Azəriqaz</button>
+            <button type="button" data-provider="Azeristilik"><span class="provider-mark tone-4">Is</span>Azeristilik</button>
+            <button type="button" data-provider="Azercell"><span class="provider-mark tone-5">Ac</span>Azercell</button>
+            <button type="button" data-provider="Bakcell"><span class="provider-mark tone-6">Bc</span>Bakcell</button>
+            <button type="button" data-provider="CityNet"><span class="provider-mark tone-7">Cn</span>CityNet</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="reference">Subscriber or meter number</label>
+          <input class="input" id="reference" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="from-card">Pay from</label>
+          <select class="select" id="from-card"></select>
+        </div>
+        <div class="field">
+          <label for="amount">Amount</label>
+          <input class="input" id="amount" inputmode="decimal" placeholder="0.00" />
+        </div>
+        <label class="check">
+          <input type="checkbox" id="recurring" />
+          <span>Make this a recurring monthly payment. It runs on the 1st, from the card you selected.</span>
+        </label>
+        <button class="btn btn-primary" type="submit">Pay now</button>
+      </form>
+      <section class="surface surface-tight form-card">
+        <div class="toolbar"><h2>Recurring payments</h2></div>
+        <div class="table-wrap">
+          <table class="data-table" id="bill-table">
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Reference</th>
+                <th class="num">Amount</th>
+                <th>Status</th>
+                <th class="actions"></th>
+              </tr>
+            </thead>
+            <tbody id="bill-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>Caspian Bank · 28 Nizami Street, Baku</span>
+      <span>Personal banking</span>
+    </div>
+  </footer>
+  <script src="assets/js/bills.js"></script>
+</body>
+</html>

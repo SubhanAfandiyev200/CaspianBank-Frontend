@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0F5C3F" />
+  <title>Loan application · Caspian Bank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="body-app">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="brand" href="app.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1F8A4C"/>
+          <path d="M22 11.2a7.2 7.2 0 1 0 0 9.6" fill="none" stroke="#E4D2A8" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span>Caspian Bank</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="topnav-panel">
+        <nav class="main-nav" aria-label="Primary">
+          <a class="nav-link" href="app.html">Cards</a>
+          <a class="nav-link" href="transfer.html">Transfers</a>
+          <a class="nav-link" href="transaction-history.html">History</a>
+          <a class="nav-link is-active" href="loan-application.html">Loans</a>
+          <a class="nav-link" href="bill-payment.html">Bill Payments</a>
+          <a class="nav-link" href="contact-us.html">Contact</a>
+        </nav>
+        <div class="nav-tools">
+          <a class="btn btn-primary btn-sm" href="login.html">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="content" class="page page-activity">
+    <header class="page-head">
+      <p class="eyebrow">Credit</p>
+      <h1>Loan application</h1>
+      <p class="lede">Request a personal loan. A decision appears here once the bank has reviewed it.</p>
+    </header>
+    <div class="pulse-row" id="loan-stats"></div>
+    <div class="layout-2">
+      <form id="loan-form" class="surface form-stack form-card" novalidate>
+        <h2>New application</h2>
+        <div class="field">
+          <label for="amount">Requested amount</label>
+          <input class="input" id="amount" inputmode="decimal" placeholder="0.00" />
+        </div>
+        <div class="field">
+          <label for="purpose">Purpose</label>
+          <input class="input" id="purpose" maxlength="120" />
+        </div>
+        <div class="field">
+          <label for="term">Term</label>
+          <select class="select" id="term">
+            <option value="6">6 months</option>
+            <option value="12">12 months</option>
+            <option value="18">18 months</option>
+            <option value="24" selected>24 months</option>
+            <option value="36">36 months</option>
+            <option value="48">48 months</option>
+          </select>
+        </div>
+        <div class="loan-quote" id="loan-quote">
+          <span>About each month</span>
+          <strong id="loan-monthly">—</strong>
+          <small id="loan-monthly-note">Enter an amount to see the split, before interest.</small>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit application</button>
+      </form>
+      <section class="surface surface-tight form-card">
+        <div class="toolbar"><h2>Your applications</h2></div>
+        <div class="table-wrap">
+          <table class="data-table" id="loan-table">
+            <thead>
+              <tr>
+                <th>Submitted</th>
+                <th class="num">Amount</th>
+                <th>Purpose</th>
+                <th>Term</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="loan-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>Caspian Bank · 28 Nizami Street, Baku</span>
+      <span>Personal banking</span>
+    </div>
+  </footer>
+  <script src="assets/js/loans.js"></script>
+</body>
+</html>
